@@ -2,61 +2,126 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Scylla Shop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Scylla Shop</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- Первый экран с баннером -->
-    <section class="hero">
 
-        <div class="hero-content">
-            <h1>SCYLLA</h1>
-            <p>DIGITAL STORE</p>
-
-            <button>
-                Купить Robux
-            </button>
-        </div>
-
-    </section>
+<div class="stars">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 
-    <!-- Каталог -->
-    <section class="shop">
 
-        <h2>Robux</h2>
+<!-- ПЕРВАЯ ЧАСТЬ -->
 
-        <div class="cards">
-
-            <div class="card">
-                <h3>100 Robux</h3>
-                <p>120 ₽</p>
-                <button>Купить</button>
-            </div>
+<section class="home" id="home">
 
 
-            <div class="card">
-                <h3>500 Robux</h3>
-                <p>550 ₽</p>
-                <button>Купить</button>
-            </div>
+<div class="logo">
+
+<h1>SCYLLA</h1>
+
+<p>ROBLOX STORE</p>
 
 
-            <div class="card">
-                <h3>1000 Robux</h3>
-                <p>1100 ₽</p>
-                <button>Купить</button>
-            </div>
+<button id="buy">
+КУПИТЬ ROBUX
+</button>
 
-        </div>
 
-    </section>
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ВТОРАЯ ЧАСТЬ -->
+
+<section class="shop" id="shop">
+
+
+<div class="window">
+
+
+<h2>SCYLLA SHOP</h2>
+
+
+
+<div class="box">
+
+<p>Сколько заплатишь?</p>
+
+
+<div class="input">
+
+<input id="rub" type="number" value="100" min="1">
+
+<span>₽</span>
+
+</div>
+
+
+</div>
+
+
+
+<div class="line"></div>
+
+
+
+
+<div class="box">
+
+
+<p>Сколько получишь?</p>
+
+
+<h1>
+
+<span id="robux">
+120
+</span>
+
+R$
+
+</h1>
+
+
+</div>
+
+
+
+<button>
+ПРОДОЛЖИТЬ
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+<script src="script.js"></script>
 
 
 </body>

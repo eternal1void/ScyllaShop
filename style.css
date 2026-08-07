@@ -2,26 +2,34 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
-    background: #000000;
+    background: #050505;
     color: white;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 
-/* Первый экран */
+/* ФОН */
 
-.hero {
+.home,
+.shop {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
 
-    height: 100vh;
 
+.home {
     background:
     linear-gradient(
-        to bottom,
-        rgba(2,3,54,0.5),
-        #000000
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.8)
     ),
     url("scylla.png");
 
@@ -31,103 +39,480 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    text-align: center;
 }
 
 
-.hero h1 {
+/* ЗВЁЗДЫ */
 
-    font-size: 100px;
-    letter-spacing: 25px;
-    margin: 0;
+.stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+.stars span {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: white;
+    border-radius: 50%;
+
+    box-shadow:
+    0 0 15px white;
+
+    animation: starMove 6s linear infinite;
+}
+
+
+.stars span::before {
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+
+    width:170px;
+
+    height:6px;
+
+
+    transform:
+
+    rotate(45deg);
+
+
+    transform-origin:right center;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0.9)
+    );
+
+
+    filter:blur(3px);
 
 }
 
 
-.hero p {
 
-    font-size: 25px;
-    letter-spacing: 10px;
+.stars span:nth-child(1){
+    left:10%;
+    top:-50px;
+}
+
+.stars span:nth-child(2){
+    left:35%;
+    top:-200px;
+    animation-delay:2s;
+}
+
+.stars span:nth-child(3){
+    left:60%;
+    top:-150px;
+    animation-delay:4s;
+}
+
+.stars span:nth-child(4){
+    left:80%;
+    top:-300px;
+    animation-delay:1s;
+}
+
+.stars span:nth-child(5){
+    left:50%;
+    top:-100px;
+    animation-delay:3s;
+}
+
+
+
+@keyframes starMove {
+
+    from {
+        transform:
+        translate(0,-200px);
+        opacity:0;
+    }
+
+
+    20% {
+        opacity:1;
+    }
+
+
+    to {
+        transform:
+        translate(500px,900px);
+        opacity:0;
+    }
 
 }
 
 
+
+/* ЛОГО */
+
+.logo {
+    text-align:center;
+    z-index:10;
+}
+
+
+.logo h1 {
+
+    font-size:90px;
+
+    margin:0;
+
+    letter-spacing:15px;
+
+    text-shadow:
+    0 0 20px white;
+
+}
+
+
+.logo p {
+
+    font-size:20px;
+
+    letter-spacing:8px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+/* КНОПКИ */
 
 button {
 
-    margin-top: 30px;
+    border:none;
 
-    padding: 15px 40px;
+    padding:18px 45px;
 
-    background: #020336;
+    border-radius:30px;
 
-    color: white;
+    background:white;
 
-    border: 1px solid #4a4fff;
+    color:black;
 
-    border-radius: 15px;
+    font-size:18px;
 
-    font-size: 18px;
+    cursor:pointer;
 
-    cursor: pointer;
+    transition:.3s;
 
 }
 
 
 
-/* Магазин */
+button:hover {
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 30px white;
+
+} 
+ 
+/* МАГАЗИН */
 
 
 .shop {
 
-    min-height: 100vh;
+    display:flex;
 
-    background: #020336;
+    justify-content:center;
 
-    padding: 80px;
+    align-items:center;
 
-    text-align: center;
+    background:
 
-}
-
-
-.shop h2 {
-
-    font-size: 50px;
-
-}
-
-
-.cards {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 30px;
+    radial-gradient(
+        circle,
+        #020336,
+        #000
+    );
 
 }
 
 
 
-.card {
+/* ОКНО ПОКУПКИ */
 
-    background: #050510;
 
-    padding: 30px;
+.window {
 
-    width: 250px;
+    width:420px;
 
-    border-radius: 20px;
+    padding:35px;
 
-    border: 1px solid #202060;
+    border-radius:25px;
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:blur(15px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.2);
+
+
+    box-shadow:
+
+    0 0 40px rgba(0,0,255,.4);
+
+
+    text-align:center;
+
 
 }
 
 
-.card p {
 
-    font-size: 30px;
+
+.window h2 {
+
+    font-size:35px;
+
+    letter-spacing:5px;
+
+    margin-top:0;
+
+}
+
+
+
+
+
+.box {
+
+    background:
+
+    rgba(0,0,0,.35);
+
+
+    border-radius:18px;
+
+
+    padding:20px;
+
+
+    margin:20px 0;
+
+}
+
+
+
+
+.box p {
+
+    margin:0 0 15px;
+
+    color:#aaa;
+
+}
+
+
+
+
+
+.input {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+.input input {
+
+
+    width:180px;
+
+
+    padding:15px;
+
+
+    font-size:25px;
+
+
+    color:white;
+
+
+    text-align:center;
+
+
+    background:#111;
+
+
+    border:
+
+    1px solid #555;
+
+
+    border-radius:12px;
+
+
+}
+
+
+
+.input span {
+
+    font-size:25px;
+
+}
+
+
+
+
+
+.box h1 {
+
+    font-size:45px;
+
+    margin:10px;
+
+}
+
+
+
+#robux {
+
+    color:#00aaff;
+
+}
+
+
+
+
+.line {
+
+    height:2px;
+
+    background:
+
+    rgba(255,255,255,.2);
+
+}
+
+
+
+
+.window button {
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+
+
+
+
+/* АДАПТИВ */
+
+
+@media(max-width:600px){
+
+
+.logo h1 {
+
+    font-size:55px;
+
+    letter-spacing:8px;
+
+}
+
+
+
+.logo p {
+
+    font-size:14px;
+
+}
+
+
+
+.window {
+
+    width:90%;
+
+}
+
+
+
+}
+
+
+
+
+/* ПЛАВНОЕ ПОЯВЛЕНИЕ */
+
+
+.logo,
+.window {
+
+    animation:
+
+    appear 1s ease;
+
+}
+
+
+
+@keyframes appear {
+
+
+from {
+
+    opacity:0;
+
+    transform:
+
+    translateY(30px);
+
+}
+
+
+
+to {
+
+    opacity:1;
+
+    transform:
+
+    translateY(0);
+
+}
+
 
 }
