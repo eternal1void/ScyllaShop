@@ -4,7 +4,6 @@
 
 html {
     scroll-behavior: smooth;
-    overflow: hidden;
 }
 
 body {
@@ -252,186 +251,198 @@ button:hover {
 
 }
 
-
-
 /* ОКНО ПОКУПКИ */
 
-
 .window {
+    width: min(620px, 92%);
+    min-height: 560px;
 
-    width:420px;
+    padding: 45px;
 
-    padding:35px;
-
-    border-radius:25px;
-
+    border-radius: 30px;
 
     background:
+        rgba(255,255,255,.08);
 
-    rgba(255,255,255,.08);
-
-
-    backdrop-filter:blur(15px);
-
+    backdrop-filter: blur(15px);
 
     border:
-
-    1px solid rgba(255,255,255,.2);
-
+        1px solid rgba(255,255,255,.2);
 
     box-shadow:
+        0 0 40px rgba(0,0,255,.4);
 
-    0 0 40px rgba(0,0,255,.4);
+    text-align: center;
 
+    /* Начальное состояние для анимации */
+    transform: translateY(60px) scale(.94);
 
-    text-align:center;
-
-
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22,1,.36,1);
 }
 
 
+/* Окно появляется, когда пользователь доходит
+   до второй страницы */
+
+.shop.visible .window {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
 
 .window h2 {
-
-    font-size:35px;
-
-    letter-spacing:5px;
-
-    margin-top:0;
-
+    font-size: 38px;
+    letter-spacing: 5px;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
 
-
-
+/* Блоки с оплатой и Robux */
 
 .box {
-
     background:
+        rgba(0,0,0,.35);
 
-    rgba(0,0,0,.35);
+    border-radius: 20px;
 
+    padding: 28px;
 
-    border-radius:18px;
-
-
-    padding:20px;
-
-
-    margin:20px 0;
-
+    margin: 24px 0;
 }
-
-
 
 
 .box p {
+    margin: 0 0 18px;
 
-    margin:0 0 15px;
+    color: #aaa;
 
-    color:#aaa;
-
+    font-size: 17px;
 }
 
 
-
-
+/* Поле ввода */
 
 .input {
+    display: flex;
 
-    display:flex;
+    justify-content: center;
 
-    justify-content:center;
+    align-items: center;
 
-    align-items:center;
-
-    gap:10px;
-
+    gap: 12px;
 }
-
 
 
 .input input {
+    width: 250px;
 
+    padding: 18px;
 
-    width:180px;
+    font-size: 28px;
 
+    color: white;
 
-    padding:15px;
+    text-align: center;
 
-
-    font-size:25px;
-
-
-    color:white;
-
-
-    text-align:center;
-
-
-    background:#111;
-
+    background: #111;
 
     border:
+        1px solid #555;
 
-    1px solid #555;
+    border-radius: 14px;
 
+    outline: none;
 
-    border-radius:12px;
-
-
+    transition: .3s;
 }
 
+
+.input input:focus {
+    border-color: #00aaff;
+
+    box-shadow:
+        0 0 20px rgba(0,170,255,.25);
+}
 
 
 .input span {
-
-    font-size:25px;
-
+    font-size: 28px;
 }
 
 
-
-
+/* Количество Robux */
 
 .box h1 {
+    font-size: 58px;
 
-    font-size:45px;
-
-    margin:10px;
-
+    margin: 14px;
 }
-
 
 
 #robux {
+    color: #00aaff;
 
-    color:#00aaff;
-
+    text-shadow:
+        0 0 20px rgba(0,170,255,.5);
 }
 
 
-
+/* Разделитель */
 
 .line {
-
-    height:2px;
+    height: 2px;
 
     background:
+        rgba(255,255,255,.2);
 
-    rgba(255,255,255,.2);
-
+    margin: 30px 0;
 }
 
 
-
+/* Кнопка */
 
 .window button {
+    width: 100%;
 
-    width:100%;
+    margin-top: 20px;
 
-    margin-top:15px;
+    padding: 20px;
+
+    font-size: 18px;
+}
+
+
+/* АДАПТИВ */
+
+@media(max-width:600px) {
+
+    .window {
+        width: 92%;
+
+        min-height: auto;
+
+        padding: 28px 20px;
+    }
+
+
+    .window h2 {
+        font-size: 28px;
+    }
+
+
+    .input input {
+        width: 190px;
+
+        font-size: 24px;
+    }
+
+
+    .box h1 {
+        font-size: 44px;
+    }
 
 }
 
@@ -516,4 +527,214 @@ to {
 }
 
 
+}
+html, body {
+    overflow: hidden;
+}
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+    box-sizing: border-box;
+
+    z-index: 9999;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.site-name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.header-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: opacity 0.25s ease,
+                transform 0.25s ease;
+}
+
+.header-nav a:hover {
+    opacity: 0.65;
+    transform: translateY(-1px);
+}
+.contacts-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 10000;
+}
+
+.contacts-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.contacts-modal {
+    position: relative;
+
+    width: 480px;
+    min-height: 300px;
+
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+
+    transform: translateY(20px) scale(0.96);
+    transition: transform 0.3s ease;
+}
+
+.contacts-overlay.active .contacts-modal {
+    transform: translateY(0) scale(1);
+}
+
+.contacts-modal h2 {
+    margin: 0 0 30px;
+
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.contacts-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    text-shadow: 0 0 0 transparent;
+
+    transition: color 0.2s ease,
+                text-shadow 0.2s ease;
+}
+
+.contacts-close:hover {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 12px rgba(255, 255, 255, 0.5),
+        0 0 22px rgba(255, 255, 255, 0.25);
+}
+
+
+.social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-item {
+    width: 100%;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 13px;
+
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.social-item:hover {
+    background: #151515;
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.social-item.disabled {
+    cursor: default;
+    opacity: 0.45;
+}
+
+.social-item.disabled:hover {
+    transform: none;
+    background: #0d0d0d;
+}
+
+.social-item small {
+    margin-left: 6px;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
 }

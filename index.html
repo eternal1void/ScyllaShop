@@ -15,6 +15,19 @@
 
 <body>
 
+    <header class="site-header">
+    <div class="header-left">
+        <img src="scyllaicon.png" alt="Scylla Shop" class="site-logo">
+        <span class="site-name">SCYLLA SHOP</span>
+    </div>
+
+    <nav class="header-nav">
+        <a href="#buy">Купить робуксы</a>
+        <a href="#support">Поддержка</a>
+        <a href="#about">О нас</a>
+        <a href="#" id="contacts-btn">Контакты</a>
+    </nav>
+</header>
 
 <div class="stars">
     <span></span>
@@ -123,7 +136,68 @@ R$
 
 <script src="script.js"></script>
 
+<div class="contacts-overlay" id="contacts-overlay">
+    <div class="contacts-modal">
+        <button class="contacts-close" id="contacts-close">×</button>
 
+        <h2>Наши соц сети</h2>
+
+        <div class="social-list">
+            <a href="#" class="social-item">
+                <span>ТГК</span>
+            </a>
+
+            <a href="#" class="social-item">
+                <span>Дискорд</span>
+            </a>
+
+            <div class="social-item disabled">
+                <span>Ютуб</span>
+                <small>(скоро)</small>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
+<div class="contacts-overlay" id="contacts-overlay">
+    <div class="contacts-modal">
+        <button class="contacts-close" id="contacts-close">×</button>
+
+        <h2>Наши соц сети</h2>
+
+        <div class="social-list">
+            <a href="#" class="social-item">ТГК</a>
+            <a href="#" class="social-item">Дискорд</a>
+
+            <div class="social-item disabled">
+                Ютуб <small>(скоро)</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const contactsBtn = document.getElementById("contacts-btn");
+const contactsOverlay = document.getElementById("contacts-overlay");
+const contactsClose = document.getElementById("contacts-close");
+
+contactsBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    contactsOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+});
+
+contactsClose.addEventListener("click", function() {
+    contactsOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+});
+
+contactsOverlay.addEventListener("click", function(event) {
+    if (event.target === contactsOverlay) {
+        contactsOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+});
+</script>

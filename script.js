@@ -33,7 +33,7 @@ rub.oninput=function(){
 
 
 robux.innerHTML =
-Math.floor(rub.value * 1.2);
+Math.floor(rub.value * 1.32);
 
 
 
