@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,11 +15,12 @@
 
 <body>
 
-    <header class="site-header">
-    <div class="header-left">
+   <header class="site-header">
+
+    <a href="#" class="header-left" id="home-button">
         <img src="scyllaicon.png" alt="Scylla Shop" class="site-logo">
         <span class="site-name">SCYLLA SHOP</span>
-    </div>
+    </a>
 
     <nav class="header-nav">
         <a href="#buy">Купить робуксы</a>
@@ -27,6 +28,7 @@
         <a href="#about">О нас</a>
         <a href="#" id="contacts-btn">Контакты</a>
     </nav>
+
 </header>
 
 <div class="stars">
@@ -143,19 +145,29 @@ R$
         <h2>Наши соц сети</h2>
 
         <div class="social-list">
-            <a href="#" class="social-item">
-                <span>ТГК</span>
-            </a>
 
-            <a href="#" class="social-item">
-                <span>Дискорд</span>
-            </a>
+    <a href="https://t.me/ScyllaShopChannel" class="social-item">
+        <i class="fa-brands fa-telegram"></i>
+        <span>ТГК</span>
+    </a>
 
-            <div class="social-item disabled">
-                <span>Ютуб</span>
-                <small>(скоро)</small>
-            </div>
-        </div>
+    <a href="#" class="social-item">
+        <i class="fa-brands fa-discord"></i>
+        <span>Дискорд</span>
+    </a>
+
+    <a href="#" class="social-item">
+        <i class="fa-brands fa-tiktok"></i>
+        <span>Тик Ток</span>
+    </a>
+
+    <div class="social-item disabled">
+        <i class="fa-brands fa-youtube"></i>
+        <span>Ютуб</span>
+        <small>(скоро)</small>
+    </div>
+
+</div>
     </div>
 </div>
 </body>
@@ -199,5 +211,23 @@ contactsOverlay.addEventListener("click", function(event) {
         contactsOverlay.classList.remove("active");
         document.body.style.overflow = "";
     }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const homeButton = document.getElementById("home-button");
+
+    if (homeButton) {
+        homeButton.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
 });
 </script>

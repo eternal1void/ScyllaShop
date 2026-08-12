@@ -38,3 +38,13 @@ Math.floor(rub.value * 1.32);
 
 
 };
+const homeButton = document.getElementById("home-button");
+
+if (homeButton) {
+    homeButton.onclick = function(event) {
+        event.preventDefault();
+
+        shop.style.display = "none";
+        home.style.display = "flex";
+    };
+}

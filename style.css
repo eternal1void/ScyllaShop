@@ -553,8 +553,16 @@ html, body {
     display: flex;
     align-items: center;
     gap: 12px;
-}
 
+    text-decoration: none;
+    color: white;
+
+    cursor: pointer;
+    .header-left:hover,
+.site-name {
+    text-decoration: none;
+}
+}
 .site-logo {
     width: 42px;
     height: 42px;
@@ -737,4 +745,30 @@ html, body {
     margin-left: 6px;
     color: rgba(255, 255, 255, 0.45);
     font-weight: 400;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+    text-decoration: none !important;
+
+    cursor: pointer;
+}
+
+.header-left:hover {
+    color: white;
+    text-decoration: none !important;
+}
+
+.site-name {
+    color: white;
+    text-decoration: none !important;
+}
+
+.site-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
 }
